@@ -26,7 +26,7 @@ model.add(layers.Dense(512, activation='relu', input_shape=(28*28,)))
 model.add(layers.Dense(10, activation='softmax'))
 
 model.compile(optimizer='rmsprop',
-              loss='categorical_crossenentropy',
+              loss='categorical_crossentropy',
               metrics='accuracy')
 
 model.summary()
@@ -43,3 +43,6 @@ y_train = to_categorical(train_labels)
 y_test = to_categorical(test_labels)
 
 y_train[0]
+
+model.fit(x_train, y_train, epochs=5, batch_size=128) #entrenando neurona
+model.evaluate(x_test, y_test) #evaluando presición con datos de prueba
